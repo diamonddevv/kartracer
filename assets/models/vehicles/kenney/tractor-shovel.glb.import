@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c48tkgyfurw0p"
-path="res://.godot/imported/ambulance.glb-b00103d70d0a25d2cc7ac14bd72d840a.scn"
+uid="uid://chun8jldvbxou"
+path="res://.godot/imported/tractor-shovel.glb-5fc66e08eefd50413fa2d3574a31ff86.scn"
 
 [deps]
 
-source_file="res://assets/models/vehicles/kenney/ambulance.glb"
-dest_files=["res://.godot/imported/ambulance.glb-b00103d70d0a25d2cc7ac14bd72d840a.scn"]
+source_file="res://assets/models/vehicles/kenney/tractor-shovel.glb"
+dest_files=["res://.godot/imported/tractor-shovel.glb-5fc66e08eefd50413fa2d3574a31ff86.scn"]
 
 [params]
 

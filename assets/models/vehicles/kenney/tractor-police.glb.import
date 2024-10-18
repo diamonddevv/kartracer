@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c48tkgyfurw0p"
-path="res://.godot/imported/ambulance.glb-b00103d70d0a25d2cc7ac14bd72d840a.scn"
+uid="uid://c1x8pvf2innuk"
+path="res://.godot/imported/tractor-police.glb-ef60f858083ab3eb631989109548fdf2.scn"
 
 [deps]
 
-source_file="res://assets/models/vehicles/kenney/ambulance.glb"
-dest_files=["res://.godot/imported/ambulance.glb-b00103d70d0a25d2cc7ac14bd72d840a.scn"]
+source_file="res://assets/models/vehicles/kenney/tractor-police.glb"
+dest_files=["res://.godot/imported/tractor-police.glb-ef60f858083ab3eb631989109548fdf2.scn"]
 
 [params]
 

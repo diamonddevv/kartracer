@@ -80,7 +80,7 @@ public partial class Kart : RigidBody3D
         DebugOverlay.Instance.DebugLines["speed"] = "";
         DebugOverlay.Instance.DebugLines["drift_time"] = "";
 
-
+        NetworkData.ModelIndex = GlobalManager.Instance.ModelIndex;
         SetupModel();
 	}
 
@@ -259,13 +259,6 @@ public partial class Kart : RigidBody3D
         } else
         {
             _driftTime = 0;
-        }
-
-
-        if (Input.IsActionJustPressed("scroll_model"))
-        {
-            NetworkData.ModelIndex = Mathf.Wrap(NetworkData.ModelIndex + 1, 0, GlobalManager.Instance.KartModelScenes.Length);
-            SetupModel();
         }
 
         if (_frameSpeed > 0 )

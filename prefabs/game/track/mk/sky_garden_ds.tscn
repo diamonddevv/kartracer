@@ -18,7 +18,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0eimb"]
-size = Vector3(500, 1, 500)
+size = Vector3(1500, 1, 1500)
 
 [node name="sky_garden_ds" type="Node3D" node_paths=PackedStringArray("ResetArea", "Spawnpoint")]
 script = ExtResource("1_p38ea")
@@ -29,9 +29,10 @@ Spawnpoint = NodePath("Marker3D")
 environment = SubResource("Environment_1hrdd")
 
 [node name="sky_garden" parent="." instance=ExtResource("1_4ni7k")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.917, 33.0681, -36.4569)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 303.325, 104.245, -67.9756)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)

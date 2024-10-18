@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c48tkgyfurw0p"
-path="res://.godot/imported/ambulance.glb-b00103d70d0a25d2cc7ac14bd72d840a.scn"
+uid="uid://qon4ydtbi5sf"
+path="res://.godot/imported/delivery-flat.glb-085de9c42a3e874a5936152b34b85e12.scn"
 
 [deps]
 
-source_file="res://assets/models/vehicles/kenney/ambulance.glb"
-dest_files=["res://.godot/imported/ambulance.glb-b00103d70d0a25d2cc7ac14bd72d840a.scn"]
+source_file="res://assets/models/vehicles/kenney/delivery-flat.glb"
+dest_files=["res://.godot/imported/delivery-flat.glb-085de9c42a3e874a5936152b34b85e12.scn"]
 
 [params]
 

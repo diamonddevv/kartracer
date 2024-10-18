@@ -31,6 +31,7 @@ public partial class GlobalManager : Node
     }
 
     public int LoadTrack { get; set; }
+    public int ModelIndex { get; set; }
 
     public Lobby Lobby { get; set; }
     public float LocalPlayer_Speed_MetersPerSecond { get; set; }

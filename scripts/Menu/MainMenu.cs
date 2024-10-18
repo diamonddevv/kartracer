@@ -13,15 +13,15 @@ public partial class MainMenu : MenuScreen
 
 	private string[] _prefixes = new[] 
 	{ 
-		"new", "super", "mini", "power", "tony hawks", "ultimate"
+		"new", "super", "mini", "power", "tony hawks", "ultra"
 	};
 	private string[] _suffixes = new[] 
 	{ 
 		"deluxe", "and knuckles", "OLED", "director's cut", "(new funky mode)", 
 		"(featuring dante from the devil may cry series)", "pro", "all-stars", "lite",
-		"xl", "u", "pocket", "advance", "sp", "color", "64", "(taylor's version)", "at the olympic games",
+		"xl", "u", "pocket", "advance", "sp", "color", "64", "at the olympic games",
 		"& watch", "(intel inside)", "i", "bros", "arcade version", "[beta]", "[alpha]", "& kazooie", "battle royale", "for the nintendo ds",
-		"GOTY edition", "welcome amiibo"
+		"GOTY edition", "welcome amiibo", "ultimate"
 	};
 
 	public override void _Ready()

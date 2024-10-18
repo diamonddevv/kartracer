@@ -9,6 +9,7 @@ public partial class HostMenu : MenuScreen
     private LineEdit _username;
     private LineEdit _ip;
     private LineEdit _port;
+    private KartSelector _kartSelect;
     private OptionButton _mapselect;
 
     private Button _host;
@@ -22,6 +23,7 @@ public partial class HostMenu : MenuScreen
         _mapselect = GetNode<OptionButton>("CenterContainer/VBoxContainer/track");
         _host = GetNode<Button>("CenterContainer/VBoxContainer/HBoxContainer/host");
         _back = GetNode<Button>("CenterContainer/VBoxContainer/HBoxContainer/back");
+        _kartSelect = GetNode<KartSelector>("KartSelector");
 
         _host.Pressed += _host_Pressed;
         _back.Pressed += MenuManager.Instance.GoToMainMenu;
@@ -33,7 +35,7 @@ public partial class HostMenu : MenuScreen
         _username.PlaceholderText = "username (max length: " + MaxUsernameLength + " chars)";
         _port.PlaceholderText = "port (default: " + DefaultPort + ")";
 
-        _host.Disabled = _username.Text.Length <= 0 || _ip.Text.Length <= 0 || _mapselect.Selected == -1;
+        _host.Disabled = _username.Text.Length <= 0 || _mapselect.Selected == -1;
     }
 
 
@@ -41,9 +43,12 @@ public partial class HostMenu : MenuScreen
     private void _host_Pressed()
     {
         string username = _username.Text;
-        string ip = _ip.Text;
+        string ip = _ip.Text.GetOrEmptyFallback("localhost");
         int port = _port.Text.Length <= 0 ? DefaultPort : int.Parse(_port.Text);
+
+
         GlobalManager.Instance.LoadTrack = _mapselect.Selected;
+        GlobalManager.Instance.ModelIndex = _kartSelect.Index;
 
         GetTree().ChangeSceneToPacked(MenuManager.Instance.Main);
     }

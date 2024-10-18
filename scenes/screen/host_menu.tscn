@@ -62,6 +62,21 @@ label_settings = SubResource("LabelSettings_0tnpm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="KartSelector" parent="." instance=ExtResource("4_uwkgv")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -256.0
+offset_right = -512.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -79,11 +94,13 @@ placeholder_text = "username"
 
 [node name="ip" type="LineEdit" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-placeholder_text = "local ip"
+placeholder_text = "local ip (default: localhost)"
+clear_button_enabled = true
 
 [node name="port" type="LineEdit" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 placeholder_text = "port (default: 8080)"
+clear_button_enabled = true
 
 [node name="track" type="OptionButton" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -105,11 +122,3 @@ text = "         host         "
 [node name="back" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "         go back         "
-
-[node name="KartSelector" parent="." instance=ExtResource("4_uwkgv")]
-layout_mode = 1
-offset_left = 84.0
-offset_top = 239.0
-offset_right = 84.0
-offset_bottom = 239.0
-scale = Vector2(0.25, 0.25)
