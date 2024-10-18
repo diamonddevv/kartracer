@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwkgme7fhh5gw"]
+
+[ext_resource type="Script" path="res://scripts/Game/Hud/Hud.cs" id="1_fysbs"]
+[ext_resource type="PackedScene" uid="uid://h032rjbjyuo6" path="res://prefabs/ui/speedometer.tscn" id="1_u4p5d"]
+[ext_resource type="Script" path="res://scripts/Game/Hud/Chat.cs" id="3_qjvtx"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_fysbs")
+
+[node name="Speedometer" parent="." instance=ExtResource("1_u4p5d")]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 25.0
+offset_bottom = 25.0
+scale = Vector2(0.25, 0.25)
+
+[node name="Chat" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -275.0
+offset_right = 507.0
+offset_bottom = 60.0
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+script = ExtResource("3_qjvtx")
+
+[node name="Label" type="RichTextLabel" parent="Chat"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+text = "<person a>: something
+<person b>: lol"
+scroll_following = true
+
+[node name="LineEdit" type="LineEdit" parent="Chat"]
+layout_mode = 2
+placeholder_text = "send a message in chat"
+max_length = 200
+clear_button_enabled = true

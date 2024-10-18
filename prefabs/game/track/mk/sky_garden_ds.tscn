@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnlfn4os0vlkr"]
+
+[ext_resource type="PackedScene" uid="uid://c7k6ptqri56bf" path="res://assets/models/mk/ds_skygarden/sky_garden.glb" id="1_4ni7k"]
+[ext_resource type="Script" path="res://scripts/Game/Track.cs" id="1_p38ea"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eqv8w"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_energy_multiplier = 3.0
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_4dknu"]
+sky_material = SubResource("ProceduralSkyMaterial_eqv8w")
+
+[sub_resource type="Environment" id="Environment_1hrdd"]
+background_mode = 2
+sky = SubResource("Sky_4dknu")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0eimb"]
+size = Vector3(500, 1, 500)
+
+[node name="sky_garden_ds" type="Node3D" node_paths=PackedStringArray("ResetArea", "Spawnpoint")]
+script = ExtResource("1_p38ea")
+ResetArea = NodePath("Area3D")
+Spawnpoint = NodePath("Marker3D")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1hrdd")
+
+[node name="sky_garden" parent="." instance=ExtResource("1_4ni7k")]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.917, 33.0681, -36.4569)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_0eimb")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=6 format=3 uid="uid://lx8225x2flv8"]
+
+[ext_resource type="Script" path="res://scripts/Menu/MenuManager.cs" id="1_pj67n"]
+[ext_resource type="PackedScene" uid="uid://be2fjxxphd4ff" path="res://scenes/screen/main_menu.tscn" id="2_8fqu4"]
+[ext_resource type="PackedScene" uid="uid://csah8km2wrxcw" path="res://scenes/screen/join_menu.tscn" id="3_doqog"]
+[ext_resource type="PackedScene" uid="uid://c33c4r6gd1wjb" path="res://scenes/screen/host_menu.tscn" id="4_8h71w"]
+[ext_resource type="PackedScene" uid="uid://35q36p6b5snr" path="res://scenes/main.tscn" id="5_jkd3v"]
+
+[node name="MenuManager" type="Node"]
+script = ExtResource("1_pj67n")
+MainMenu = ExtResource("2_8fqu4")
+JoinMenu = ExtResource("3_doqog")
+HostMenu = ExtResource("4_8h71w")
+Main = ExtResource("5_jkd3v")

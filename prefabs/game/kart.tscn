@@ -1,0 +1,49 @@
+[gd_scene load_steps=15 format=3 uid="uid://cvmynd6ky7747"]
+
+[ext_resource type="Script" path="res://scripts/Game/Player/Kart.cs" id="1_wqig5"]
+[ext_resource type="PackedScene" uid="uid://bmfcum3sgnskq" path="res://assets/models/vehicles/kenney/ambulance.glb" id="2_3m0le"]
+[ext_resource type="PackedScene" uid="uid://yp2vueykxnhf" path="res://assets/models/vehicles/kenney/sedan.glb" id="2_bp4n7"]
+[ext_resource type="PackedScene" uid="uid://0hwxr7jdu0u3" path="res://assets/models/vehicles/kenney/delivery.glb" id="3_c3qjq"]
+[ext_resource type="PackedScene" uid="uid://cf0a5f3dxiig1" path="res://assets/models/vehicles/kenney/firetruck.glb" id="4_q5hlm"]
+[ext_resource type="PackedScene" uid="uid://cx6wh2dpo30o3" path="res://assets/models/vehicles/kenney/garbage-truck.glb" id="5_8yjwg"]
+[ext_resource type="PackedScene" uid="uid://vm2aytv83c3b" path="res://assets/models/vehicles/kenney/police.glb" id="6_l6u3x"]
+[ext_resource type="PackedScene" uid="uid://coirc6r033uwk" path="res://assets/models/vehicles/kenney/race-future.glb" id="7_nlw0f"]
+[ext_resource type="PackedScene" uid="uid://isr112pxi616" path="res://assets/models/vehicles/kenney/race.glb" id="8_ef36i"]
+[ext_resource type="PackedScene" uid="uid://e2rvylfvskg5" path="res://assets/models/vehicles/kenney/sedan-sports.glb" id="9_a4qyg"]
+[ext_resource type="PackedScene" uid="uid://i76paunhfx6u" path="res://assets/models/vehicles/kenney/suv-luxury.glb" id="11_f5o0s"]
+[ext_resource type="PackedScene" uid="uid://uqtqssa1p4ic" path="res://assets/models/vehicles/kenney/suv.glb" id="12_ki1pr"]
+[ext_resource type="PackedScene" uid="uid://d2rg1kd7ueacg" path="res://assets/models/vehicles/kenney/taxi.glb" id="13_e5ip7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u142j"]
+radius = 1.0
+
+[node name="Kart" type="RigidBody3D"]
+collision_mask = 2
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+can_sleep = false
+max_contacts_reported = 1
+script = ExtResource("1_wqig5")
+KartGravity = 49.0
+ModelScenes = Array[PackedScene]([ExtResource("2_3m0le"), ExtResource("3_c3qjq"), ExtResource("4_q5hlm"), ExtResource("5_8yjwg"), ExtResource("6_l6u3x"), ExtResource("7_nlw0f"), ExtResource("8_ef36i"), ExtResource("9_a4qyg"), ExtResource("2_bp4n7"), ExtResource("11_f5o0s"), ExtResource("12_ki1pr"), ExtResource("13_e5ip7")])
+
+[node name="Nametag" type="Label3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.66431, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 3
+outline_render_priority = 2
+text = "insert username here"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_u142j")
+
+[node name="Model" parent="." instance=ExtResource("2_bp4n7")]
+
+[node name="Headlights" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, 0)
+visible = false
+light_energy = 20.0
+spot_range = 50.0
+spot_angle = 30.0

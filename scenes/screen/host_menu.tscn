@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://c33c4r6gd1wjb"]
+
+[ext_resource type="Script" path="res://scripts/Menu/HostMenu.cs" id="1_qxspy"]
+[ext_resource type="Shader" path="res://assets/shader/wave.gdshader" id="2_38rtc"]
+[ext_resource type="Texture2D" uid="uid://dh6dymwd3fefm" path="res://assets/textures/yesah.jpg" id="3_05sd3"]
+[ext_resource type="PackedScene" uid="uid://co51im8asodin" path="res://prefabs/ui/kart_selector.tscn" id="4_uwkgv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_451sm"]
+shader = ExtResource("2_38rtc")
+shader_parameter/warp = 0.6
+
+[sub_resource type="LabelSettings" id="LabelSettings_0tnpm"]
+line_spacing = 0.0
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0.176419, 0.176419, 0.176419, 0.705882)
+
+[node name="HostMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qxspy")
+MaxUsernameLength = 16
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.538659, 0.467185, 0.897918, 1)
+
+[node name="shadertexture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_451sm")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_05sd3")
+expand_mode = 1
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -513.0
+offset_top = 48.0
+offset_right = 513.0
+offset_bottom = 228.0
+grow_horizontal = 2
+text = "host server"
+label_settings = SubResource("LabelSettings_0tnpm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="username" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "username"
+
+[node name="ip" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "local ip"
+
+[node name="port" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "port (default: 8080)"
+
+[node name="track" type="OptionButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "MKDS Unused GCN Mario Circuit"
+popup/item_1/text = "MKDS GBA Sky Garden"
+popup/item_1/id = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="host" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "         host         "
+
+[node name="back" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "         go back         "
+
+[node name="KartSelector" parent="." instance=ExtResource("4_uwkgv")]
+layout_mode = 1
+offset_left = 84.0
+offset_top = 239.0
+offset_right = 84.0
+offset_bottom = 239.0
+scale = Vector2(0.25, 0.25)

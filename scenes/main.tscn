@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://35q36p6b5snr"]
+
+[ext_resource type="PackedScene" uid="uid://cvmynd6ky7747" path="res://prefabs/game/kart.tscn" id="1_aucli"]
+[ext_resource type="Script" path="res://scripts/Game/Lobby.cs" id="1_uvd6n"]
+[ext_resource type="Script" path="res://scripts/Game/Player/CameraController.cs" id="3_gbc6i"]
+[ext_resource type="PackedScene" uid="uid://dwkgme7fhh5gw" path="res://scenes/screen/hud.tscn" id="3_ikedd"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_uvd6n")
+KartScene = ExtResource("1_aucli")
+
+[node name="Hud" parent="." instance=ExtResource("3_ikedd")]
+
+[node name="Kart" parent="." instance=ExtResource("1_aucli")]
+editor_description = "vroom"
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 313.095, 150.656, -160.76)
+collision_mask = 14
+Local = true
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("Target")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.0128469, 4.55249, 11.0345)
+script = ExtResource("3_gbc6i")
+Target = NodePath("../Kart")
+TranslationOffset = Vector3(0, 6, -8)
+LerpSpeed = 5.0

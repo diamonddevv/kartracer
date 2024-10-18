@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsj5d23lcacg5"]
+
+[ext_resource type="Script" path="res://scripts/Scripts/DebugOverlay.cs" id="1_dqn8s"]
+[ext_resource type="Texture2D" uid="uid://duv2li5wdixsc" path="res://assets/textures/ddv.png" id="2_irjsy"]
+[ext_resource type="Texture2D" uid="uid://c8ighokmubrd8" path="res://assets/icon.svg" id="2_sk0a4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7n8g"]
+line_spacing = 0.0
+font_size = 10
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.427451)
+
+[node name="DebugOverlay" type="CanvasLayer"]
+script = ExtResource("1_dqn8s")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "sample text
+sample text
+sample text
+sample text
+sample text
+sample text
+sample text"
+label_settings = SubResource("LabelSettings_q7n8g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -27.9999
+offset_right = 262.0
+offset_bottom = 100.0
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_irjsy")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_sk0a4")
