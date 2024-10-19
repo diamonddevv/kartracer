@@ -21,6 +21,7 @@ DebugOverlay="*res://scenes/scripts/debug_overlay.tscn"
 NetworkManager="*res://scripts/Network/NetworkManager.cs"
 MenuManager="*res://scenes/screen/menu_manager.tscn"
 GlobalManager="*res://scenes/scripts/global_manager.tscn"
+Netcode="*res://scripts/Network/Netcode.cs"
 
 [dotnet]
 
