@@ -23,10 +23,7 @@ public partial class GlobalManager : Node
     {
         if (what == NotificationWMCloseRequest)
         {
-            if (NetworkManager.Instance != null && NetworkManager.Instance.ConnectedToServer)
-            {
-                NetworkManager.Instance.Disconnect();
-            }
+            
         }
     }
 

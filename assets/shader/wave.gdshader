@@ -2,6 +2,11 @@ shader_type canvas_item;
 
 uniform float warp : hint_range(0.0, 5.0, 0.01) = 0.05;
 
+float random(vec2 uv) {
+    return fract(sin(dot(uv.xy,
+        vec2(12.9898,78.233))) * 43758.5453123);
+}
+
 float msqr(vec4 v) {
 	return 
 	v.r * v.r + 

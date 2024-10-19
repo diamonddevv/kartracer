@@ -49,9 +49,8 @@ public partial class Chat : VBoxContainer
         text = text.Limit(MaxMsgLength);
         if (text.Length <= 0) return;
 
-        string currentUsernameOrUid = GlobalManager.Instance.Lobby.LocalKart.NetworkData.Username.GetOrEmptyFallback("Unnamed (UID:" + NetworkManager.Instance.LocalUid + ")");
+        string currentUsernameOrUid = GlobalManager.Instance.Lobby.LocalKart.NetworkData.Username.GetOrEmptyFallback("Unnamed");
 
-        NetworkManager.Instance.Send(Packets.Packet_Msg(currentUsernameOrUid, text));
 		
 		_msgBox.Clear();
 		_msgBox.ReleaseFocus();

@@ -86,25 +86,19 @@ public partial class Kart : RigidBody3D
 
     public override void _Process(double delta)
     {
-        var auth = NetworkManager.Instance.HasControlAuthority(NetworkData);
-
-        if (Local) NetworkData.PeerUid = NetworkManager.Instance.LocalUid;
-        if (auth) HandleInput((float)delta);
+        HandleInput((float)delta);
 
 
         _currentMaxSpeed = (Math.Sign(_frameSpeed) > 0 ? MaxSpeed / 4 : MaxSpeed);
 
-        if (auth)
-        {
-            AngleModel((float)delta);
+        AngleModel((float)delta);
 
 
-            GlobalManager.Instance.LocalPlayer_Speed_MetersPerSecond = LinearVelocity.Length();
+        GlobalManager.Instance.LocalPlayer_Speed_MetersPerSecond = LinearVelocity.Length();
 
-            DebugOverlay.Instance.DebugLines["username"] = "Username: " + NetworkData.Username;
-            DebugOverlay.Instance.DebugLines["speed"] = "Speed: " + Math.Round(LinearVelocity.Length(), 1) + "m/s";
-            DebugOverlay.Instance.DebugLines["drift_time"] = "Drift Time: " + Math.Round(_driftTime, 1) + "s";
-        }
+        DebugOverlay.Instance.DebugLines["username"] = "Username: " + NetworkData.Username;
+        DebugOverlay.Instance.DebugLines["speed"] = "Speed: " + Math.Round(LinearVelocity.Length(), 1) + "m/s";
+        DebugOverlay.Instance.DebugLines["drift_time"] = "Drift Time: " + Math.Round(_driftTime, 1) + "s";
 
         _nametag.Text = NetworkData.Username;
         if (NetworkData.Username.Length > 0)
@@ -112,15 +106,9 @@ public partial class Kart : RigidBody3D
             Name = NetworkData.Username;
         }
 
-        _nametag.Visible = NetworkManager.Instance.ConnectedToServer && !NetworkManager.Instance.HasControlAuthority(NetworkData);
+        _nametag.Visible = false;
 
 
-        // update server on position and stuff
-        if (_age % 5 == 0) // 12 updates/s @ 60fps
-        {
-            if (NetworkManager.Instance.HasControlAuthority(NetworkData))
-                NetworkManager.Instance.Send(Packets.Packet_UpdateServerOnPosition(this));
-        }
 
 
         // Angle headlights
@@ -217,8 +205,6 @@ public partial class Kart : RigidBody3D
         // headlights
         _headlights.Visible = NetworkData.HeadlightsState;
 
-        // send update packet
-        SendNetVisualsUpdate();
     }
 
     private void HandleInput(float delta)
@@ -240,7 +226,6 @@ public partial class Kart : RigidBody3D
         {
             NetworkData.HeadlightsState = !NetworkData.HeadlightsState;
             _headlights.Visible = NetworkData.HeadlightsState;
-            SendNetVisualsUpdate();
         }
 
         if (_frameStartDrift)
@@ -292,14 +277,6 @@ public partial class Kart : RigidBody3D
 
         // orthonormalize; we only want rotation
         _model.GlobalTransform = _model.GlobalTransform.Orthonormalized();
-    }
-
-
-    private void SendNetVisualsUpdate()
-    {
-
-        if (NetworkManager.Instance.HasControlAuthority(NetworkData)) 
-            NetworkManager.Instance.Send(Packets.Packet_UpdateServerOnPlayerVisuals(this));
     }
 
 }

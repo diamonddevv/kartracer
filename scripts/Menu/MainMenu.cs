@@ -24,6 +24,7 @@ public partial class MainMenu : MenuScreen
 		"GOTY edition", "welcome amiibo", "ultimate"
 	};
 
+
 	public override void _Ready()
 	{
 		_title = GetNode<Label>("title");

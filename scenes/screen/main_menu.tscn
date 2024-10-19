@@ -62,7 +62,7 @@ grow_horizontal = 2
 text = "new super **KART RACER** deluxe and knuckles	 
 oled director's cut (new funky mode) 
 (featuring dante from the devil may cry series) pro all-stars lite xl 3
-u pocket advance sp color 64 (taylors version)"
+u pocket advance sp color 64"
 label_settings = SubResource("LabelSettings_0tnpm")
 horizontal_alignment = 1
 
